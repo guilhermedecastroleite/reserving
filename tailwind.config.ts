@@ -13,8 +13,20 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      gridTemplateAreas: {
+        album: ["main side-1", "main side-2"],
+      },
+      colors: {
+        "grey-1": "#E0E0E0",
+        "grey-2": "#F2F2F2",
+        "blue-accent": "#2F80ED",
+        "background-light": "#F4F4F4",
+        "text-dark": "#1A1A1A",
+        "text-medium": "#181818",
+        "text-light": "#4F4F4F",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@savvywombat/tailwindcss-grid-areas")],
 };
 export default config;
