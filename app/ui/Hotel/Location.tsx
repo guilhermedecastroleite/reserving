@@ -1,8 +1,13 @@
-const Location = () => {
+import { MdLocationPin } from "react-icons/md";
+
+const Location = ({ location }) => {
+  const { address } = location;
+
   return (
-    <div id="Location" className="pt-3">
-      REPLACE WITH ICON Lorem ipsum road, Tantruim-2322, Melbourne, Australia
-    </div>
+    <p id="Location" className="pt-3 flex items-center">
+      <MdLocationPin className="mr-1.5 text-blue-accent" />
+      {address}
+    </p>
   );
 };
 

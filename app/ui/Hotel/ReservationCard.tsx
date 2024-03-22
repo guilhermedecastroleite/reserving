@@ -3,7 +3,7 @@ import SectionTitle from "../Typography/SectionTitle";
 import Detail from "../Typography/Detail";
 import Button from "../Button";
 
-const ReservationCard = () => {
+const ReservationCard = ({ rest }) => {
   const title = "Standard twin ben, Multiple beds";
   const size = "300 sq ft";
   const number_guests = 3;
@@ -15,7 +15,10 @@ const ReservationCard = () => {
   const bedsText = beds?.double && `${beds.double} double bed`;
 
   return (
-    <article className="rounded-md bg-white overflow-hidden">
+    <article
+      className="rounded-md bg-white overflow-hidden max-w-[400px]"
+      {...rest}
+    >
       <Image
         src="https://placehold.co/400x200/webp"
         width={400}

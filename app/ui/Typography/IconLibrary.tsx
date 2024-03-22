@@ -4,6 +4,7 @@ import { FaCar } from "react-icons/fa";
 import { FaShoppingBag } from "react-icons/fa";
 import { FaSwimmingPool } from "react-icons/fa";
 import { FaThumbsUp } from "react-icons/fa";
+import { MdLocationPin } from "react-icons/md";
 
 const IconLibrary = {
   wifi: FaWifi,
@@ -12,6 +13,7 @@ const IconLibrary = {
   business: FaShoppingBag,
   "swimming-pool": FaSwimmingPool,
   "top-rated": FaThumbsUp,
+  location: MdLocationPin,
 };
 
 export default IconLibrary;

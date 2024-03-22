@@ -10,7 +10,7 @@ const Detail = ({
   iconClassName,
   ...rest
 }: PropsWithChildren<TypographyType>) => {
-  const Icon = IconLibrary?.[icon];
+  const Icon = icon ? IconLibrary?.[icon] : null;
 
   return (
     <Component

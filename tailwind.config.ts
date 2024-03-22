@@ -14,7 +14,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       gridTemplateAreas: {
-        album: ["main side-1", "main side-2"],
+        album: ["main main side-1", "main main side-2"],
       },
       colors: {
         "grey-1": "#E0E0E0",
@@ -24,6 +24,7 @@ const config: Config = {
         "text-dark": "#1A1A1A",
         "text-medium": "#181818",
         "text-light": "#4F4F4F",
+        star: "#F2994A",
       },
     },
   },

@@ -7,10 +7,7 @@ const Overview = () => {
     "Featuring free WiFi throughout the property, Lakeside Motel Waterfront offers accommodations in Lakes Entrance, 19 mi from Bairnsdale. Free private parking is available on site.";
 
   return (
-    <div
-      id="Overview"
-      className="mt-8 pt-6 pb-10 px-8 bg-white rounded-md col-span-2"
-    >
+    <div id="Overview" className="mt-8 pt-6 pb-10 px-8 bg-white rounded-md">
       <SectionTitle>Overview</SectionTitle>
       <Description className="mt-6">{description}</Description>
       <div id="Divider" className="mt-10 w-full h-px bg-grey-1" />

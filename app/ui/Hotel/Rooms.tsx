@@ -5,6 +5,7 @@ import Button from "../Button";
 import Datepicker from "../Datepicker";
 import Subtitle from "../Typography/Subtitle";
 import ReservationCard from "./ReservationCard";
+import Carousel from "../Carousel";
 
 const Rooms = () => {
   const [value, setValue] = useState({
@@ -29,10 +30,14 @@ const Rooms = () => {
         <Datepicker value={value} onChange={handleValueChange} />
         <Button className="min-w-56">Check Availability</Button>
       </div>
-      <div id="RoomsContainer" className="flex flex-row justify-between mt-4">
-        <ReservationCard />
-        <ReservationCard />
-        <ReservationCard />
+      <div id="RoomsContainer" className="mt-4">
+        <Carousel>
+          <ReservationCard />
+          <ReservationCard />
+          <ReservationCard />
+          <ReservationCard />
+          <ReservationCard />
+        </Carousel>
       </div>
     </div>
   );
