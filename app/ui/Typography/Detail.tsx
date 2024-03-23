@@ -1,6 +1,5 @@
 import { TypographyType } from "@/app/types";
 import { PropsWithChildren } from "react";
-import IconLibrary from "./IconLibrary";
 
 const Detail = ({
   as: Component = "p",
@@ -10,7 +9,7 @@ const Detail = ({
   iconClassName,
   ...rest
 }: PropsWithChildren<TypographyType>) => {
-  const Icon = icon ? IconLibrary?.[icon] : null;
+  const Icon = icon;
 
   return (
     <Component

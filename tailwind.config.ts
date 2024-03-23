@@ -14,7 +14,9 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       gridTemplateAreas: {
-        album: ["main main side-1", "main main side-2"],
+        album: ["main"],
+        album_mid: ["main main", "side-1 side-2"],
+        album_full: ["main main side-1", "main main side-2"],
       },
       colors: {
         "grey-1": "#E0E0E0",

@@ -19,7 +19,7 @@ const Map = ({ location }: MapProps) => {
       center={coordinates}
       zoom={13}
       scrollWheelZoom={false}
-      style={{ height: "240px", width: "400px", borderRadius: "0.375rem" }}
+      style={{ height: "240px", borderRadius: "0.375rem" }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

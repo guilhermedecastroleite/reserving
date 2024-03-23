@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { MdLocationPin } from "react-icons/md";
 
 import SectionTitle from "../Typography/SectionTitle";
 import Detail from "../Typography/Detail";
@@ -22,7 +23,12 @@ const Explore = ({ location }: ExploreProps) => {
       <SectionTitle className="mt-8">Explore the area</SectionTitle>
       <ul id="LocationsList" className="mt-6">
         {nearby.map((place) => (
-          <Detail key={place.name} as="li" icon="location" className="mt-3">
+          <Detail
+            key={place.name}
+            as="li"
+            icon={MdLocationPin}
+            className="mt-3"
+          >
             {place.name}
           </Detail>
         ))}

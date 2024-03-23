@@ -16,14 +16,7 @@ const Carousel = ({ children }: CarouselType) => {
     slidesToScroll: 1,
   };
 
-  return (
-    <Slider {...settings}>
-      {/* {children.map((child: React.ReactNode) => {
-        return <div key={Math.random()}>{child}</div>;
-      })} */}
-      {children}
-    </Slider>
-  );
+  return <Slider {...settings}>{children}</Slider>;
 };
 
 export default Carousel;

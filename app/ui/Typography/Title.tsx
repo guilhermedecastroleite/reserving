@@ -1,4 +1,5 @@
 import { TypographyType } from "@/app/types";
+import clsx from "clsx";
 import { PropsWithChildren } from "react";
 
 const Title = ({
@@ -9,7 +10,7 @@ const Title = ({
   return (
     <h1
       id="Title"
-      className={`font-semibold	text-3xl text-text-dark ${className}`}
+      className={clsx("font-semibold	text-3xl text-text-dark", className)}
       {...rest}
     >
       {children}

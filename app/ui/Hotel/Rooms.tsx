@@ -5,7 +5,7 @@ import Button from "../Button";
 import Datepicker from "../Datepicker";
 import Subtitle from "../Typography/Subtitle";
 import ReservationCard from "./ReservationCard";
-import Carousel from "../Carousel";
+import Select from "../Select";
 
 const Rooms = () => {
   const [value, setValue] = useState({
@@ -23,21 +23,24 @@ const Rooms = () => {
       <Subtitle>Available rooms</Subtitle>
       <div
         id="DateContainer"
-        className="mt-6 py-2.5 px-3 bg-white flex flex-row gap-3"
+        className="mt-6 py-2.5 px-3 bg-white flex flex-row flex-wrap md:flex-nowrap gap-3"
       >
         <Datepicker value={value} onChange={handleValueChange} />
         <Datepicker value={value} onChange={handleValueChange} />
-        <Datepicker value={value} onChange={handleValueChange} />
-        <Button className="min-w-56">Check Availability</Button>
+        <Select onConfirm={(value) => console.log({ value })} />
+        <Button className="w-full md:w-auto min-w-56" type="submit">
+          Check Availability
+        </Button>
       </div>
-      <div id="RoomsContainer" className="mt-4">
-        <Carousel>
-          <ReservationCard />
-          <ReservationCard />
-          <ReservationCard />
-          <ReservationCard />
-          <ReservationCard />
-        </Carousel>
+      <div
+        id="RoomsContainer"
+        className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+      >
+        <ReservationCard />
+        <ReservationCard />
+        <ReservationCard />
+        <ReservationCard />
+        <ReservationCard />
       </div>
     </div>
   );

@@ -1,7 +1,12 @@
 import { FaStar, FaStarHalf } from "react-icons/fa";
-import IconLibrary from "./Typography/IconLibrary";
 
-const Review = ({ rating, amountReviews, className }) => {
+interface ReviewProps {
+  rating: number;
+  amountReviews: number;
+  className?: string;
+}
+
+const Review = ({ rating, amountReviews, className }: ReviewProps) => {
   const reviewString = amountReviews > 1 ? "Reviews" : "Review";
 
   const fullStars = Math.floor(rating);

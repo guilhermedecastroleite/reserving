@@ -15,15 +15,16 @@ const ReservationCard = ({ rest }) => {
   const bedsText = beds?.double && `${beds.double} double bed`;
 
   return (
-    <article
-      className="rounded-md bg-white overflow-hidden max-w-[400px]"
-      {...rest}
-    >
+    <article className="rounded-md bg-white overflow-hidden" {...rest}>
       <Image
-        src="https://placehold.co/400x200/webp"
-        width={400}
-        height={200}
+        src="https://placehold.co/416x208/webp"
+        // width={416}
+        // height={208}
+        width={0}
+        height={0}
+        sizes="100vw"
         alt="Hotel Picture"
+        style={{ width: "100%", height: "auto" }}
       />
       <div id="RoomInformation" className="p-5">
         <SectionTitle>{title}</SectionTitle>

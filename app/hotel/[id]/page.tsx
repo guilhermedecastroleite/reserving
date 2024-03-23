@@ -49,6 +49,14 @@ const hotelData = {
     rating: 4.5,
     amountReviews: 1200,
   },
+  facilities: [
+    "WIFI",
+    "AC",
+    "PARKING",
+    "BUSINESS",
+    "SWIMMING_POOL",
+    "TOP_RATED",
+  ],
   location: {
     country: "Australia",
     city: "Melbourne",
@@ -72,19 +80,18 @@ interface HotelTypes {
 const Hotel = ({ params }: HotelTypes) => {
   const id = params?.id;
 
-  const hotelRating = 4.5;
-  const hotelAmountReviews = 1200;
-  const hotelAddress = "Lorem ipsum road, Tantruim-2322, Melbourne, Australia";
-
   return (
-    <div className="max-w-screen-xl m-auto">
+    <div className="max-w-screen-xl m-auto mt-6 px-4 lg:px-12">
       <Album />
-      <div className="grid grid-cols-3 gap-8 pt-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-10">
         <div className="col-span-2">
           <Title>{hotelData.name}</Title>
           <Review {...hotelData.rating} />
           <Location location={hotelData.location} />
-          <Overview />
+          <Overview
+            description={hotelData.description}
+            facilities={hotelData.facilities}
+          />
         </div>
         <Explore location={hotelData.location} />
       </div>

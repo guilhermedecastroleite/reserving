@@ -1,10 +1,49 @@
+import { FaWifi } from "react-icons/fa";
+import { FaWind } from "react-icons/fa";
+import { FaCar } from "react-icons/fa";
+import { FaShoppingBag } from "react-icons/fa";
+import { FaSwimmingPool } from "react-icons/fa";
+import { FaThumbsUp } from "react-icons/fa";
+
+import { Facilities } from "@/app/types";
+
 import Description from "../Typography/Description";
 import Detail from "../Typography/Detail";
 import SectionTitle from "../Typography/SectionTitle";
+interface OverviewProps {
+  description: string;
+  facilities: Facilities[];
+}
 
-const Overview = () => {
-  const description =
-    "Featuring free WiFi throughout the property, Lakeside Motel Waterfront offers accommodations in Lakes Entrance, 19 mi from Bairnsdale. Free private parking is available on site.";
+const facilitiesOptions = {
+  [Facilities.WIFI]: {
+    text: "Free wifi",
+    icon: FaWifi,
+  },
+  [Facilities.AC]: {
+    text: "Air conditioning",
+    icon: FaWind,
+  },
+  [Facilities.PARKING]: {
+    text: "Parking available",
+    icon: FaCar,
+  },
+  [Facilities.BUSINESS]: {
+    text: "Business services",
+    icon: FaShoppingBag,
+  },
+  [Facilities.SWIMMING_POOL]: {
+    text: "Swimming pool",
+    icon: FaSwimmingPool,
+  },
+  [Facilities.TOP_RATED]: {
+    text: "Top rated in area",
+    icon: FaThumbsUp,
+  },
+};
+
+const Overview = ({ description, facilities }: OverviewProps) => {
+  console.log("TESTE: ", Facilities);
 
   return (
     <div id="Overview" className="mt-8 pt-6 pb-10 px-8 bg-white rounded-md">
@@ -13,54 +52,17 @@ const Overview = () => {
       <div id="Divider" className="mt-10 w-full h-px bg-grey-1" />
       <SectionTitle className="mt-6">Top Facilities</SectionTitle>
       <ul id="FacilitiesList" className="mt-6 flex flex-col flex-wrap max-h-24">
-        <Detail
-          as="li"
-          icon="wifi"
-          className="mt-3"
-          iconClassName="text-blue-accent"
-        >
-          Free Wifi
-        </Detail>
-        <Detail
-          as="li"
-          icon="ac"
-          className="mt-3"
-          iconClassName="text-blue-accent"
-        >
-          Air Conditioning
-        </Detail>
-        <Detail
-          as="li"
-          icon="parking"
-          className="mt-3"
-          iconClassName="text-blue-accent"
-        >
-          Parking available
-        </Detail>
-        <Detail
-          as="li"
-          icon="business"
-          className="mt-3"
-          iconClassName="text-blue-accent"
-        >
-          Business Services
-        </Detail>
-        <Detail
-          as="li"
-          icon="swimming-pool"
-          className="mt-3"
-          iconClassName="text-blue-accent"
-        >
-          Swimming pool
-        </Detail>
-        <Detail
-          as="li"
-          icon="top-rated"
-          className="mt-3"
-          iconClassName="text-blue-accent"
-        >
-          Top rated in area
-        </Detail>
+        {facilities.map((facility) => (
+          <Detail
+            key={facility}
+            as="li"
+            icon={facilitiesOptions[facility].icon}
+            className="mt-3"
+            iconClassName="text-blue-accent"
+          >
+            {facilitiesOptions[facility].text}
+          </Detail>
+        ))}
       </ul>
     </div>
   );

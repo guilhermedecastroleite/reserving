@@ -1,8 +1,11 @@
 import Image from "next/image";
 
-const Album = () => {
+const Album = ({ className }) => {
   return (
-    <div id="Album" className="grid grid-areas-album gap-4">
+    <div
+      id="Album"
+      className={`grid grid-areas-album md:grid-areas-album_mid lg:grid-areas-album_full gap-4 ${className}`}
+    >
       {/* <Image
         src="https://placehold.co/820x452/webp"
         width={820}
@@ -39,6 +42,7 @@ const Album = () => {
         sizes="100vw"
         alt="Main hotel picture"
         style={{ gridArea: "side-1", width: "100%", height: "auto" }}
+        className="hidden md:block"
       />
       <Image
         src="https://placehold.co/400x218/webp"
@@ -47,16 +51,8 @@ const Album = () => {
         sizes="100vw"
         alt="Main hotel picture"
         style={{ gridArea: "side-2", width: "100%", height: "auto" }}
+        className="hidden md:block"
       />
-      {/* <div className="bg-rose-500 w-full h-full" style={{ gridArea: "main" }} />
-      <div
-        className="bg-teal-500 w-full h-full"
-        style={{ gridArea: "side-1" }}
-      />
-      <div
-        className="bg-purple-500 w-full h-full"
-        style={{ gridArea: "side-2" }}
-      /> */}
     </div>
   );
 };
