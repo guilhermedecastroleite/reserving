@@ -2,10 +2,10 @@ import clsx from "clsx";
 
 interface CounterProps {
   value: number;
-  minValue: number;
-  maxValue: number;
   onChange: (a: number) => void;
-  className: string;
+  minValue?: number;
+  maxValue?: number;
+  className?: string;
 }
 
 const Counter = ({
@@ -34,11 +34,11 @@ const Counter = ({
         className
       )}
     >
-      <button onClick={onDescrease} className="text-2xl">
+      <button type="button" onClick={onDescrease} className="text-2xl">
         -
       </button>
       {value}
-      <button onClick={onIncrease} className="text-2xl">
+      <button type="button" onClick={onIncrease} className="text-2xl">
         +
       </button>
     </div>

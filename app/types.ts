@@ -47,3 +47,9 @@ export interface InspirationalArticleType {
   subtitle: string;
   image: ImageType;
 }
+
+export interface PopularHotelType {
+  title: string;
+  subtitle: string;
+  image: ImageType;
+}

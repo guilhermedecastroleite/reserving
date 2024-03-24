@@ -15,9 +15,11 @@ interface SelectedType {
 
 interface RoomSelectProps {
   onConfirm: (a: SelectedType) => void;
+  hideValues?: boolean;
+  className?: string;
 }
 
-const RoomSelect = ({ onConfirm }: RoomSelectProps) => {
+const RoomSelect = ({ onConfirm, hideValues, className }: RoomSelectProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -39,23 +41,25 @@ const RoomSelect = ({ onConfirm }: RoomSelectProps) => {
   useClickOutside(ref, () => setIsOpen(false));
 
   return (
-    <div className="relative w-full" ref={ref}>
-      <div
+    <div className={clsx("relative w-full", className)} ref={ref}>
+      <button
         id="RoomSelect"
-        className="bg-grey-2 rounded-md flex items-center p-3 cursor-pointer"
+        className="bg-grey-2 rounded-md flex items-center p-3 cursor-pointer w-full h-full"
         onClick={toggleOpen}
+        type="button"
       >
-        <IoPerson className="mr-2" />
-        <p>
+        <IoPerson className="mr-2 text-grey-3" />
+        <p className={clsx({ hidden: hideValues })}>
           {selected.adults} adults . {selected.children} children .{" "}
           {selected.rooms} room
         </p>
+        <p className={clsx({ hidden: !hideValues })}>Guests</p>
         {isOpen ? (
-          <FaChevronUp className="absolute right-3" />
+          <FaChevronUp className="absolute right-3 text-grey-3" />
         ) : (
-          <FaChevronDown className="absolute right-3" />
+          <FaChevronDown className="absolute right-3 text-grey-3" />
         )}
-      </div>
+      </button>
       <div
         id="HiddenMenu"
         className={clsx(
@@ -95,7 +99,9 @@ const RoomSelect = ({ onConfirm }: RoomSelectProps) => {
             className="col-span-2"
           />
         </div>
-        <Button onClick={onButtonClick}>Done</Button>
+        <Button type="button" onClick={onButtonClick}>
+          Done
+        </Button>
       </div>
     </div>
   );

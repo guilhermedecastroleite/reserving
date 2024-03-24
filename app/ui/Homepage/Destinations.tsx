@@ -16,7 +16,10 @@ const Destinations = ({ destinations, className }: DestinationsProps) => {
         Plan and book our perfect trip with expert advice, travel tips,
         destination information and inspiration from us
       </p>
-      <div id="CardsAlbum" className="flex justify-between mt-8 gap-5">
+      <div
+        id="CardsAlbum"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  mt-8 gap-5"
+      >
         {destinations.map((destination: DestinationType) => (
           <EditorialCard
             key={destination.title}

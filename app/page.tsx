@@ -140,7 +140,7 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen max-w-screen-xl m-auto mt-6 px-4 lg:px-12">
       <Poster {...homeData.poster} />
-      <Destinations className="mt-12" destinations={homeData.destinations} />
+      <Destinations className="mt-16" destinations={homeData.destinations} />
       <InspirationalArticles
         className="mt-12"
         inspirationalArticles={homeData.inspirationalArticles}
