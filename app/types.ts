@@ -53,3 +53,12 @@ export interface PopularHotelType {
   subtitle: string;
   image: ImageType;
 }
+
+export interface PriceType {
+  original: number;
+  discounted?: number;
+  discount?: number;
+  formatted: string;
+  original_formatted?: string;
+  currency?: string;
+}

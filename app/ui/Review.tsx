@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { FaStar, FaStarHalf } from "react-icons/fa";
 
 interface ReviewProps {
@@ -19,7 +20,7 @@ const Review = ({ rating, amountReviews, className }: ReviewProps) => {
   const halfStar = hasHalfStar && <FaStarHalf className="text-star" />;
 
   return (
-    <div id="Review" className={`pt-3 flex flex-row items-center ${className}`}>
+    <div id="Review" className={clsx("flex flex-row items-center", className)}>
       {stars} {halfStar}
       {`${rating} (${amountReviews} ${reviewString})`}
     </div>

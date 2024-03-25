@@ -4,8 +4,8 @@ import { useState } from "react";
 import Button from "../Button";
 import Datepicker from "../Datepicker";
 import Subtitle from "../Typography/Subtitle";
-import ReservationCard from "./ReservationCard";
-import Select from "../Select";
+import ReservationCard from "../Cards/ReservationCard";
+import Select from "../RoomsSelector";
 
 const Rooms = () => {
   const [value, setValue] = useState({
@@ -14,7 +14,6 @@ const Rooms = () => {
   });
 
   const handleValueChange = (newValue) => {
-    console.log("newValue:", newValue);
     setValue(newValue);
   };
 

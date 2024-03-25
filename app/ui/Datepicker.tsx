@@ -41,7 +41,7 @@ const Datepicker = ({
       <input
         {...inputProps}
         id="RoomSelect"
-        className="bg-grey-2 rounded-md w-full h-full py-3 pr-3 pl-10 text-sm"
+        className="bg-grey-2 rounded-md w-full h-full py-3 pr-3 pl-10 text-sm placeholder:text-text-light"
         onClick={toggleOpen}
         placeholder={placeholder}
       />

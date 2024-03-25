@@ -13,13 +13,17 @@ interface SelectedType {
   rooms: number;
 }
 
-interface RoomSelectProps {
+interface RoomsSelectorProps {
   onConfirm: (a: SelectedType) => void;
   hideValues?: boolean;
   className?: string;
 }
 
-const RoomSelect = ({ onConfirm, hideValues, className }: RoomSelectProps) => {
+const RoomsSelector = ({
+  onConfirm,
+  hideValues,
+  className,
+}: RoomsSelectorProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +47,7 @@ const RoomSelect = ({ onConfirm, hideValues, className }: RoomSelectProps) => {
   return (
     <div className={clsx("relative w-full", className)} ref={ref}>
       <button
-        id="RoomSelect"
+        id="RoomsSelector"
         className="bg-grey-2 rounded-md flex items-center p-3 cursor-pointer w-full h-full"
         onClick={toggleOpen}
         type="button"
@@ -53,7 +57,9 @@ const RoomSelect = ({ onConfirm, hideValues, className }: RoomSelectProps) => {
           {selected.adults} adults . {selected.children} children .{" "}
           {selected.rooms} room
         </p>
-        <p className={clsx({ hidden: !hideValues })}>Guests</p>
+        <p className={clsx("text-text-light", { hidden: !hideValues })}>
+          Guests
+        </p>
         {isOpen ? (
           <FaChevronUp className="absolute right-3 text-grey-3" />
         ) : (
@@ -107,4 +113,4 @@ const RoomSelect = ({ onConfirm, hideValues, className }: RoomSelectProps) => {
   );
 };
 
-export default RoomSelect;
+export default RoomsSelector;

@@ -43,8 +43,6 @@ const facilitiesOptions = {
 };
 
 const Overview = ({ description, facilities }: OverviewProps) => {
-  console.log("TESTE: ", Facilities);
-
   return (
     <div id="Overview" className="mt-8 pt-6 pb-10 px-8 bg-white rounded-md">
       <SectionTitle>Overview</SectionTitle>

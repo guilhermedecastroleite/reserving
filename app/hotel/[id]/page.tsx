@@ -86,7 +86,7 @@ const Hotel = ({ params }: HotelTypes) => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-10">
         <div className="col-span-2">
           <Title>{hotelData.name}</Title>
-          <Review {...hotelData.rating} />
+          <Review className="mt-3" {...hotelData.rating} />
           <Location location={hotelData.location} />
           <Overview
             description={hotelData.description}

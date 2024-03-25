@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
 import Datepicker from "../Datepicker";
-import RoomSelect from "../Select";
+import RoomSelect from "../RoomsSelector";
 import Button from "../Button";
 import LocationInput from "./LocationInput";
 import { addDays } from "date-fns";
@@ -28,12 +28,10 @@ const SearchForm = ({ className }: SearchFormProps) => {
     guests: null,
   });
 
-  console.log({ searchParams });
-
   return (
     <form
       className={clsx(
-        "mt-6 py-2.5 px-3 w-full lg:w-[90%]  xl:w-4/5 h-fit lg:max-h-16 bg-white flex flex-row flex-wrap lg:flex-nowrap gap-3 rounded-lg drop-shadow-md",
+        "mt-6 py-2.5 px-3 h-fit lg:max-h-16 bg-white flex flex-row flex-wrap lg:flex-nowrap gap-3 rounded-lg drop-shadow-md",
         className
       )}
     >
