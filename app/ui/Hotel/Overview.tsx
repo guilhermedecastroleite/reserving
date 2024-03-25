@@ -5,7 +5,7 @@ import { FaShoppingBag } from "react-icons/fa";
 import { FaSwimmingPool } from "react-icons/fa";
 import { FaThumbsUp } from "react-icons/fa";
 
-import { Facilities } from "@/app/types";
+import type { Facilities } from "@/app/types";
 
 import Description from "../Typography/Description";
 import Detail from "../Typography/Detail";

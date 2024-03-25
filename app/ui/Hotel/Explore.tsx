@@ -3,7 +3,7 @@ import { MdLocationPin } from "react-icons/md";
 
 import SectionTitle from "../Typography/SectionTitle";
 import Detail from "../Typography/Detail";
-import { LocationType } from "@/app/types";
+import type { LocationType } from "@/app/types";
 
 const Map = dynamic(async () => await import("../Map"), {
   ssr: false,

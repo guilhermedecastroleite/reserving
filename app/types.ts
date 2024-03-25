@@ -1,4 +1,4 @@
-import { LatLngExpression } from "leaflet";
+import { LatLngTuple } from "leaflet";
 import { IconType } from "react-icons";
 
 export enum Facilities {
@@ -18,14 +18,14 @@ export interface TypographyType {
 }
 
 export interface NearbyPlaceType {
-  coordinates: LatLngExpression;
+  coordinates: LatLngTuple;
   name: string;
 }
 export interface LocationType {
   country: string;
   city: string;
   address: string;
-  coordinates: LatLngExpression;
+  coordinates: LatLngTuple;
   nearby: NearbyPlaceType[];
 }
 

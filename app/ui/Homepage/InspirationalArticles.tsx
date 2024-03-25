@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Subtitle from "../Typography/Subtitle";
 import ImmersiveEditorialCard from "../Cards/ImmersiveEditorialCard";
-import { InspirationalArticleType } from "@/app/types";
+import type { InspirationalArticleType } from "@/app/types";
 
 interface InspirationalArticlesProps {
   inspirationalArticles: InspirationalArticleType[];

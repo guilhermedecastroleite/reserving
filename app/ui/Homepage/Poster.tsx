@@ -1,4 +1,4 @@
-import { ImageType } from "@/app/types";
+import type { ImageType } from "@/app/types";
 import Image from "next/image";
 import SearchForm from "./SearchForm";
 

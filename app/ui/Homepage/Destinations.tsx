@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Subtitle from "../Typography/Subtitle";
 import EditorialCard from "../Cards/EditorialCard";
-import { DestinationType } from "@/app/types";
+import type { DestinationType } from "@/app/types";
 
 interface DestinationsProps {
   destinations: DestinationType[];

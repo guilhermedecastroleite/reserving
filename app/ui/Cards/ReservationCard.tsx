@@ -2,8 +2,13 @@ import Image from "next/image";
 import SectionTitle from "../Typography/SectionTitle";
 import Detail from "../Typography/Detail";
 import Button from "../Button";
+import clsx from "clsx";
 
-const ReservationCard = ({ rest }) => {
+interface ReservationCardProps {
+  className?: string;
+}
+
+const ReservationCard = ({ className, ...props }: ReservationCardProps) => {
   const title = "Standard twin ben, Multiple beds";
   const size = "300 sq ft";
   const number_guests = 3;
@@ -15,7 +20,10 @@ const ReservationCard = ({ rest }) => {
   const bedsText = beds?.double && `${beds.double} double bed`;
 
   return (
-    <article className="rounded-md bg-white overflow-hidden" {...rest}>
+    <article
+      className={clsx("rounded-md bg-white overflow-hidden", className)}
+      {...props}
+    >
       <Image
         src="https://placehold.co/416x208/webp"
         // width={416}

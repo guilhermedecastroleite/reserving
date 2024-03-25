@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Subtitle from "../Typography/Subtitle";
-import { PopularHotelType } from "@/app/types";
+import type { PopularHotelType } from "@/app/types";
 import EditorialCard from "../Cards/EditorialCard";
 
 interface PopularHotelsProps {

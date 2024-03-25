@@ -1,6 +1,11 @@
+import type { LocationType } from "@/app/types";
 import { MdLocationPin } from "react-icons/md";
 
-const Location = ({ location }) => {
+interface LocationProps {
+  location: LocationType;
+}
+
+const Location = ({ location }: LocationProps) => {
   const { address } = location;
 
   return (

@@ -1,4 +1,4 @@
-import { TypographyType } from "@/app/types";
+import type { TypographyType } from "@/app/types";
 import { PropsWithChildren } from "react";
 
 const Subtitle = ({
