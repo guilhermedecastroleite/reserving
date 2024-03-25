@@ -26,8 +26,6 @@ const ReservationCard = ({ className, ...props }: ReservationCardProps) => {
     >
       <Image
         src="https://placehold.co/416x208/webp"
-        // width={416}
-        // height={208}
         width={0}
         height={0}
         sizes="100vw"

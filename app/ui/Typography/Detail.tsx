@@ -8,10 +8,11 @@ const Detail = ({
   className,
   iconClassName,
   ...rest
-}: PropsWithChildren<TypographyType>) => {
+}: TypographyType) => {
   const Icon = icon;
 
   return (
+    /* @ts-ignore-next-line */
     <Component
       id="Detail"
       className={`font-normal	text-sm text-text-light flex flex-row ${className}`}

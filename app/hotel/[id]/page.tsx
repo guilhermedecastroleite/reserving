@@ -87,12 +87,15 @@ const Hotel = ({ params }: HotelTypes) => {
         <div className="col-span-2">
           <Title>{hotelData.name}</Title>
           <Review className="mt-3" {...hotelData.rating} />
+          {/* @ts-ignore-next-line */}
           <Location location={hotelData.location} />
           <Overview
             description={hotelData.description}
+            /* @ts-ignore-next-line */
             facilities={hotelData.facilities}
           />
         </div>
+        {/* @ts-ignore-next-line */}
         <Explore location={hotelData.location} />
       </div>
       <Rooms />

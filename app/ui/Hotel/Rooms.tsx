@@ -13,7 +13,7 @@ const Rooms = () => {
     endDate: new Date(),
   });
 
-  const handleValueChange = (newValue) => {
+  const handleValueChange = (newValue: any) => {
     setValue(newValue);
   };
 

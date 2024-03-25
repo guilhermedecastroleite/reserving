@@ -15,6 +15,7 @@ export interface TypographyType {
   icon?: IconType;
   iconClassName?: string;
   className?: string;
+  children: React.ReactNode | string;
 }
 
 export interface NearbyPlaceType {

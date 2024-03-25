@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-const Album = ({ className }) => {
+interface AlbumProps {
+  className?: string;
+}
+
+const Album = ({ className }: AlbumProps) => {
   return (
     <div
       id="Album"
