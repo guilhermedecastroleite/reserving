@@ -1,7 +1,8 @@
-import { fetchHotelList } from "../lib/data";
-import SearchResultsCard from "../ui/Cards/SearchResultsCard";
+import { Suspense } from "react";
 import SearchForm from "../ui/Homepage/SearchForm";
-import SearchResultsHeader from "../ui/Search/SearchResultsHeader";
+import ResultsContainer, {
+  ResultsContainerSkeleton,
+} from "../ui/Search/ResultsContainer";
 import SideFilters from "../ui/Search/SideFilters";
 
 interface SearchProps {
@@ -11,9 +12,7 @@ interface SearchProps {
   };
 }
 
-const Search = async ({ searchParams }: SearchProps) => {
-  const results = await fetchHotelList(searchParams);
-
+const Search = ({ searchParams }: SearchProps) => {
   return (
     <h1 className="flex flex-col max-w-screen-xl m-auto mt-6 px-4 lg:px-12">
       <SearchForm className="max-w-[90%] m-auto mt-[5.5rem]" />
@@ -22,17 +21,9 @@ const Search = async ({ searchParams }: SearchProps) => {
         className="grid grid-cols-1 lg:grid-cols-8 gap-8 mt-16"
       >
         <SideFilters className="col-span-1 lg:col-span-2" />
-        <div id="SerachResultsContainer" className="col-span-1 lg:col-span-6">
-          <SearchResultsHeader
-            location="Melbourne"
-            amountResults={results.length}
-          />
-          <div className="flex flex-col gap-6 mt-7">
-            {results.map((item) => (
-              <SearchResultsCard key={item.hotel_id} data={item} />
-            ))}
-          </div>
-        </div>
+        <Suspense fallback={<ResultsContainerSkeleton />}>
+          <ResultsContainer searchParams={searchParams} />
+        </Suspense>
       </div>
     </h1>
   );

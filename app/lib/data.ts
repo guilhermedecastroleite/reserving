@@ -91,7 +91,6 @@ export async function fetchHotelList(params: any) {
   const property = params?.property || "";
   const country = params?.country || "";
   const rating = params?.rating || 0;
-  const budget = params?.budget.split(",").map(Number);
 
   try {
     const hotels = await sql`

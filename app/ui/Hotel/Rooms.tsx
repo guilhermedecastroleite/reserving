@@ -1,22 +1,19 @@
 import Button from "../Button";
 import Datepicker from "../Datepicker";
 import Subtitle from "../Typography/Subtitle";
-import ReservationCard from "../Cards/ReservationCard";
 import RoomsSelector from "../RoomsSelector";
-
-import { fetchRooms } from "@/app/lib/data";
+import RoomsContainer, { RoomsContainerSkeleton } from "./RoomsContainer";
+import { Suspense } from "react";
 
 interface RoomsProps {
   hotelId: string;
 }
 
-const Rooms = async ({ hotelId }: RoomsProps) => {
+const Rooms = ({ hotelId }: RoomsProps) => {
   const value = {
     startDate: new Date(),
     endDate: new Date(),
   };
-
-  const rooms = await fetchRooms(hotelId);
 
   return (
     <div className="mt-10">
@@ -32,14 +29,9 @@ const Rooms = async ({ hotelId }: RoomsProps) => {
           Check Availability
         </Button>
       </div>
-      <div
-        id="RoomsContainer"
-        className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-      >
-        {rooms.map((room) => (
-          <ReservationCard key={room.room_id} room={room} />
-        ))}
-      </div>
+      <Suspense fallback={<RoomsContainerSkeleton />}>
+        <RoomsContainer hotelId={hotelId} />
+      </Suspense>
     </div>
   );
 };

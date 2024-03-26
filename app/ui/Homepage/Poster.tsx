@@ -1,17 +1,19 @@
 import type { ImageType } from "@/app/types";
 import Image from "next/image";
 import SearchForm from "./SearchForm";
+import clsx from "clsx";
 
 interface PosterProps {
   title: string;
   subtitle: string;
   image: ImageType;
+  className?: string;
 }
 
-const Poster = ({ title, subtitle, image }: PosterProps) => {
+const Poster = ({ title, subtitle, image, className }: PosterProps) => {
   const { src, alt } = image;
   return (
-    <div id="Poster">
+    <div id="Poster" className={clsx(className)}>
       <div
         id="PosterText"
         className="grid md:hidden  top-0 left-0 place-content-center w-full h-full text-dark mb-8"
@@ -21,11 +23,11 @@ const Poster = ({ title, subtitle, image }: PosterProps) => {
       </div>
       <div id="PosterInner" className="relative">
         <Image
+          priority
           src={src}
           alt={alt}
-          width={0}
-          height={0}
-          sizes="100vw"
+          width={1280}
+          height={500}
           className="hidden sm:block w-full h-auto rounded-md"
         />
         <div
