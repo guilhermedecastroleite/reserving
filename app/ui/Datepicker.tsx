@@ -9,7 +9,7 @@ import clsx from "clsx";
 
 interface DatepickerProps {
   selected: Date | undefined;
-  onSelect: (a: Date | undefined) => void;
+  onSelect?: (a: Date | undefined) => void;
   placeholder?: string;
   fromDate?: Date;
   className?: string;

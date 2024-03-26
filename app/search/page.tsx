@@ -4,37 +4,22 @@ import SearchForm from "../ui/Homepage/SearchForm";
 import SearchResultsHeader from "../ui/Search/SearchResultsHeader";
 import SideFilters from "../ui/Search/SideFilters";
 
-const results = [...Array(10)].fill({
-  id: "lakeside-motel-warefront",
-  name: "Lakeside Motel Warefront",
-  rating: {
-    rating: 4.5,
-    amountReviews: 1200,
-  },
-  description:
-    "Featuring free WiFi throughout the property, Lakeside Motel Waterfront offers accommodations in Lakes Entrance, 19 mi from Bairnsdale. Free private parking is available on site.",
-  price: {
-    original: 150,
-    discounted: 130,
-    discount: 0.05,
-    formatted: "$130",
-    original_formatted: "$150",
-    currency: "$",
-  },
-  promotion: "book-now" as const,
-});
+interface SearchProps {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}
 
-const Search = async ({ params }) => {
-  const results = await fetchHotelList(params);
-
-  console.log({ params });
+const Search = async ({ searchParams }: SearchProps) => {
+  const results = await fetchHotelList(searchParams);
 
   return (
     <h1 className="flex flex-col max-w-screen-xl m-auto mt-6 px-4 lg:px-12">
-      <SearchForm className="max-w-[90%] m-auto" />
+      <SearchForm className="max-w-[90%] m-auto mt-[5.5rem]" />
       <div
         id="SearchPageContent"
-        className="grid grid-cols-1 lg:grid-cols-8 gap-8 mt-28"
+        className="grid grid-cols-1 lg:grid-cols-8 gap-8 mt-16"
       >
         <SideFilters className="col-span-1 lg:col-span-2" />
         <div id="SerachResultsContainer" className="col-span-1 lg:col-span-6">

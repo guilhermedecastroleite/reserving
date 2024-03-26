@@ -19,6 +19,7 @@ const homeData = {
     {
       title: "Australia",
       subtitle: "2246 properties",
+      url: "/search?country=Australia",
       image: {
         src: "https://placehold.co/295x220/webp",
         alt: "Alt text",
@@ -29,6 +30,7 @@ const homeData = {
     {
       title: "Japan",
       subtitle: "2246 properties",
+      url: "/search?country=Japan",
       image: {
         src: "https://placehold.co/295x220/webp",
         alt: "Alt text",
@@ -39,6 +41,7 @@ const homeData = {
     {
       title: "New Zeeland",
       subtitle: "2246 properties",
+      url: "/search?country=New+Zealand",
       image: {
         src: "https://placehold.co/295x220/webp",
         alt: "Alt text",
@@ -49,6 +52,7 @@ const homeData = {
     {
       title: "Greece",
       subtitle: "2246 properties",
+      url: "/search?country=Greece",
       image: {
         src: "https://placehold.co/295x220/webp",
         alt: "Alt text",
@@ -96,6 +100,7 @@ const homeData = {
     {
       title: "Lakeside Motel Warefront",
       subtitle: "13 available",
+      url: "/hotel/lakeside-motel-warefront",
       image: {
         src: "https://placehold.co/295x300/webp",
         alt: "Alt text",
@@ -104,8 +109,9 @@ const homeData = {
       },
     },
     {
-      title: "Recce Graham resort",
+      title: "Julia Dens Resort",
       subtitle: "13 available",
+      url: "/hotel/julia-dens-resort",
       image: {
         src: "https://placehold.co/295x300/webp",
         alt: "Alt text",
@@ -114,8 +120,9 @@ const homeData = {
       },
     },
     {
-      title: "Fireside Dinners",
+      title: "Asakusa Hostel",
       subtitle: "13 available",
+      url: "/hotel/asakusa-hostel",
       image: {
         src: "https://placehold.co/295x300/webp",
         alt: "Alt text",
@@ -124,8 +131,9 @@ const homeData = {
       },
     },
     {
-      title: "Oculous Inn Stay",
+      title: "Athens Villa",
       subtitle: "13 available",
+      url: "/hotel/athens-villa",
       image: {
         src: "https://placehold.co/295x300/webp",
         alt: "Alt text",

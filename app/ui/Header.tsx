@@ -1,24 +1,26 @@
-import Image from "next/image";
+import clsx from "clsx";
 import Link from "next/link";
 
-const Header = () => {
+interface HeaderProps {
+  className?: string;
+}
+
+const Header = ({ className }: HeaderProps) => {
   return (
     <header
       id="Header"
-      className="top-0 left-0 h-16 bg-white hidden md:flex justify-center z-auto"
+      className={clsx(
+        "top-0 left-0 h-16 bg-white hidden md:flex justify-center z-auto",
+        className
+      )}
     >
       <div
         id="HeaderContent"
         className="relative w-full max-w-screen-xl flex items-center justify-center px-4 lg:px-12"
       >
-        <Image
-          src="/logo.svg"
-          alt="Reserving"
-          width={131}
-          height={21}
-          priority
-          className="absolute left-4 lg:left-12"
-        />
+        <div className="font-semibold text-xl left-4 lg:left-12 absolute">
+          Reserving
+        </div>
         <ul id="HeaderNavigation" className="flex gap-8 lg:gap-12">
           <li>
             <Link href="/">Home</Link>

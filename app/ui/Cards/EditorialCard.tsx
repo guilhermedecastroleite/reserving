@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { ImageType } from "../../types";
 import clsx from "clsx";
+import Link from "next/link";
 
 interface EditorialCardProps {
   title: string;
   subtitle: string;
+  url: string;
   image: ImageType;
   className: string;
 }
@@ -12,13 +14,14 @@ interface EditorialCardProps {
 const EditorialCard = ({
   title,
   subtitle,
+  url,
   image,
   className,
 }: EditorialCardProps) => {
   const { src, alt, width, height } = image;
 
   return (
-    <article className={clsx(className)}>
+    <Link className={clsx("cursor-pointer", className)} href={url || ""}>
       <Image
         src={src}
         width={width}
@@ -29,7 +32,7 @@ const EditorialCard = ({
       />
       <h3 className="mt-4 font-semibold text-xl">{title}</h3>
       <p className="mt-1.5 text-sm">{subtitle}</p>
-    </article>
+    </Link>
   );
 };
 

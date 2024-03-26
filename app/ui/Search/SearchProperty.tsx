@@ -14,9 +14,6 @@ const SearchProperty = ({ className }: SearchPropertyProps) => {
   const pathName = usePathname();
   const { replace } = useRouter();
 
-  const initialValue =
-    new URLSearchParams(searchParams).get("property") || undefined;
-
   const handleSearch = useDebouncedCallback((term) => {
     const params = new URLSearchParams(searchParams);
 
@@ -38,7 +35,6 @@ const SearchProperty = ({ className }: SearchPropertyProps) => {
           id="RoomSelect"
           className="rounded-md w-full h-full py-3 pr-3 pl-10 text-sm placeholder:text-text-light border-none"
           placeholder="e.g. Beach west palm"
-          value={initialValue}
           onChange={(e) => handleSearch(e.target.value)}
         />
         <FaMagnifyingGlass className="mr-2 text-text-light absolute top-3.5 left-3 " />

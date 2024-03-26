@@ -13,11 +13,11 @@ interface SearchResultsCard {
 }
 
 const SearchResultsCard = ({ data, className }: SearchResultsCard) => {
-  const { id, name, description, rating, promotion, price, cover } = data;
+  const { hotel_id, name, description, rating, promotion, price, cover } = data;
 
   return (
     <Link
-      href={`/hotel/${id}`}
+      href={`/hotel/${hotel_id}`}
       className={clsx(
         "p-5 border border-grey-1 rounded-md flex flex-row flex-wrap md:flex-nowrap gap-6 cursor-pointer",
         className
@@ -51,13 +51,13 @@ const SearchResultsCard = ({ data, className }: SearchResultsCard) => {
         </div>
         <div
           id="HotelValues"
-          className="col-span-1 sm:col-span-2 mt-4 sm:mt-0 flex flex-col justify-between sm:items-end"
+          className="col-span-1 sm:col-span-2 mt-4 sm:mt-0 flex flex-col-reverse justify-between sm:items-end"
         >
-          {promotion && <DiscountTag discount={promotion} />}
           <Price
             price={price}
             className="mt-3 sm:mt-0 items-start sm:items-end"
           />
+          {promotion && <DiscountTag discount={promotion} />}
         </div>
       </div>
       <Button type="button" className="mt-3 w-full sm:hidden">

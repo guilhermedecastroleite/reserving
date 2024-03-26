@@ -15,7 +15,7 @@ interface SelectedType {
 }
 
 interface RoomsSelectorProps {
-  onConfirm: (a: SelectedType) => void;
+  onConfirm?: (a: SelectedType) => void;
   hideValues?: boolean;
   className?: string;
 }

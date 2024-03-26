@@ -23,9 +23,13 @@ const Filter = ({ title, type, options, className }: FilterProps) => {
   const selected = new URLSearchParams(searchParams).get(type);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selected = event.target.value;
+    const selectedValue = event.target.value;
     const params = new URLSearchParams(searchParams);
-    params.set(type, selected);
+    if (selected === selectedValue) {
+      params.delete(type);
+    } else {
+      params.set(type, selectedValue);
+    }
     replace(`${pathName}?${params.toString()}`);
   };
 

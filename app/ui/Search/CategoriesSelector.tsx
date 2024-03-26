@@ -36,9 +36,13 @@ const CategoriesSelector = ({ className }: CategoriesSelectorProps) => {
 
   const selected = new URLSearchParams(searchParams).get("category");
 
-  const handleClick = (selected: string) => {
+  const handleClick = (selectedValue: string) => {
     const params = new URLSearchParams(searchParams);
-    params.set("category", selected);
+    if (selectedValue === selected) {
+      params.delete("category");
+    } else {
+      params.set("category", selectedValue);
+    }
     replace(`${pathName}?${params.toString()}`);
   };
 

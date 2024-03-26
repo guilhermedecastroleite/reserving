@@ -40,6 +40,7 @@ export interface ImageType {
 export interface DestinationType {
   title: string;
   subtitle: string;
+  url: string;
   image: ImageType;
 }
 
@@ -52,6 +53,7 @@ export interface InspirationalArticleType {
 export interface PopularHotelType {
   title: string;
   subtitle: string;
+  url: string;
   image: ImageType;
 }
 

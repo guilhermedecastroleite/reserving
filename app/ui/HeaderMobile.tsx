@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -9,7 +8,11 @@ import clsx from "clsx";
 
 import Title from "./Typography/Title";
 
-const HeaderMobile = () => {
+interface MobileHeaderProps {
+  className?: string;
+}
+
+const HeaderMobile = ({ className }: MobileHeaderProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -22,7 +25,10 @@ const HeaderMobile = () => {
     <>
       <header
         id="HeaderMobile"
-        className="top-0 left-0 h-16 bg-white flex md:hidden justify-center"
+        className={clsx(
+          "top-0 left-0 h-16 bg-white flex md:hidden justify-center",
+          className
+        )}
       >
         <div
           id="HeaderMobileContent"
@@ -31,13 +37,7 @@ const HeaderMobile = () => {
           <button className="absolute left-4 lg:left-12" onClick={toggleMenu}>
             <IoIosMenu className="text-3xl" />
           </button>
-          <Image
-            src="/logo.svg"
-            alt="Reserving"
-            width={131}
-            height={21}
-            priority
-          />
+          <div className="font-semibold text-xl">Reserving</div>
           <div className="absolute right-4 lg:right-12">Login</div>
         </div>
       </header>

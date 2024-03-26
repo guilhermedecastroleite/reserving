@@ -21,7 +21,7 @@ export async function fetchHotel(id: string) {
         hotels.longitude,
         hotels.cover,
         hotels.album,
-        hotels.nearby,
+        hotels.nearby
       FROM hotels
       WHERE
         hotels.hotel_id ILIKE ${`%${id}%`}
@@ -82,10 +82,16 @@ export async function fetchRooms(query: string) {
   }
 }
 
-export async function fetchHotelList(query: string) {
+export async function fetchHotelList(params: any) {
   noStore();
 
-  console.log({ query });
+  console.log({ params });
+
+  const category = params?.category || "";
+  const property = params?.property || "";
+  const country = params?.country || "";
+  const rating = params?.rating || 0;
+  const budget = params?.budget.split(",").map(Number);
 
   try {
     const hotels = await sql`
@@ -93,6 +99,7 @@ export async function fetchHotelList(query: string) {
         hotels.hotel_id,
         hotels.name,
         hotels.description,
+        hotels.category,
         hotels.rating_value,
         hotels.amount_reviews,
         hotels.facilities,
@@ -111,11 +118,17 @@ export async function fetchHotelList(query: string) {
           SELECT 
             rooms.price
           FROM rooms
-          WHERE rooms.hotel_id = hotels.hotel_id
+          WHERE
+            rooms.hotel_id = hotels.hotel_id
           ORDER BY price->>'discounted' ASC
           LIMIT 1
         ) AS price
-      FROM hotels
+        FROM hotels
+        WHERE
+          hotels.name ILIKE ${`%${property}%`} AND
+          hotels.country ILIKE ${`%${country}%`} AND
+          hotels.category ILIKE ${`%${category}%`} AND
+          hotels.rating_value > ${rating}
     `;
 
     return hotels.rows;

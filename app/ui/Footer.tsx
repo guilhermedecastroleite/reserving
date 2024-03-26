@@ -4,7 +4,7 @@ const Footer = () => {
       id="Footer"
       className="flex justify-center items-center h-14 mt-8 bg-white"
     >
-      My Dream Place {new Date().getFullYear()}
+      Reserving {new Date().getFullYear()}
     </footer>
   );
 };
