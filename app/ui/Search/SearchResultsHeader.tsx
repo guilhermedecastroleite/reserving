@@ -2,6 +2,7 @@ import clsx from "clsx";
 import CategoriesSelector from "./CategoriesSelector";
 import SortSelector from "./SortSelector";
 import CategoriesSelectorMobile from "./CategoriesSelectorMobile";
+import { Suspense } from "react";
 
 interface SearchResultsHeaderProps {
   location: string;
@@ -23,9 +24,11 @@ const SearchResultsHeader = ({
         id="SearchSelectors"
         className="flex flex-row flex-wrap sm:justify-between items-center mt-6 gap-4"
       >
-        <CategoriesSelector className="hidden sm:flex" />
-        <CategoriesSelectorMobile className="sm:hidden w-full" />
-        <SortSelector className="w-full sm:w-fit" />
+        <Suspense>
+          <CategoriesSelector className="hidden sm:flex" />
+          <CategoriesSelectorMobile className="sm:hidden w-full" />
+          <SortSelector className="w-full sm:w-fit" />
+        </Suspense>
       </div>
     </div>
   );

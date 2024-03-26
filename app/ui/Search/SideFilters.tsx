@@ -2,6 +2,7 @@ import clsx from "clsx";
 import SearchProperty from "./SearchProperty";
 import Filter from "./Filter";
 import { FaStar } from "react-icons/fa";
+import { Suspense } from "react";
 
 const budgetOptions = [
   {
@@ -165,7 +166,9 @@ interface SideFiltersProps {
 const SideFilters = ({ className }: SideFiltersProps) => {
   return (
     <div className={clsx("flex flex-col gap-5 h-full", className)}>
-      <SearchProperty />
+      <Suspense>
+        <SearchProperty />
+      </Suspense>
       <div className="text-xl font-semibold text-grey-4 ml-4">Filter by</div>
       <Filter title="Your budget per day" options={budgetOptions} />
       <Filter title="Rating" options={ratingOptions} />
