@@ -63,3 +63,18 @@ export interface PriceType {
   original_formatted?: string;
   currency?: string;
 }
+
+export interface RoomType {
+  name: string;
+  size: string;
+  number_guests: number;
+  beds: {
+    double?: number;
+    single?: number;
+  };
+}
+
+export interface HotelImages {
+  cover: ImageType;
+  album: ImageType[];
+}

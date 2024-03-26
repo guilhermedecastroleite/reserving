@@ -1,6 +1,5 @@
 "use client";
 import { MapContainer, Marker, TileLayer, Tooltip } from "react-leaflet";
-// import { MdLocationPin } from "react-icons/md";
 
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
@@ -10,6 +9,12 @@ import { LocationType } from "../types";
 interface MapProps {
   location: LocationType;
 }
+
+export const MapSkeleton = () => (
+  <div role="status" className="max-w-sm animate-pulse">
+    <div className="h-[240px] w-full rounded-md bg-zinc-300" />
+  </div>
+);
 
 const Map = ({ location }: MapProps) => {
   const { coordinates, nearby } = location;
@@ -29,20 +34,7 @@ const Map = ({ location }: MapProps) => {
         <Tooltip>HOTEL NAME HERE</Tooltip>
       </Marker>
       {nearby.map((place) => (
-        <Marker
-          key={place.name}
-          position={place.coordinates}
-          // icon={divIcon({
-          //   html: renderToStaticMarkup(
-          //     <MdLocationPin className="text-rose-500 text-3xl" />
-          //   ),
-          //   shadowUrl:
-          //     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
-          //   iconSize: [0, 0],
-          //   iconAnchor: [25, 41],
-          //   shadowSize: [41, 41],
-          // })}
-        >
+        <Marker key={place.name} position={place.coordinates}>
           <Tooltip>{place.name}</Tooltip>
         </Marker>
       ))}

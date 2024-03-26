@@ -13,7 +13,7 @@ interface SearchResultsCard {
 }
 
 const SearchResultsCard = ({ data, className }: SearchResultsCard) => {
-  const { id, name, description, rating, promotion, price } = data;
+  const { id, name, description, rating, promotion, price, cover } = data;
 
   return (
     <Link
@@ -23,12 +23,12 @@ const SearchResultsCard = ({ data, className }: SearchResultsCard) => {
         className
       )}
     >
-      <div className="relative w-full pt-[50%] md:pt-0">
+      <div className="relative w-full pt-[50%] md:pt-0 md:min-w-72">
         <Image
-          src="https://placehold.co/285x200/webp"
+          src={cover.src}
+          alt={cover.alt}
           fill
-          alt="Hotel Search Picture"
-          className="rounded-md object-cover md:object-cover w-full"
+          className="rounded-md object-cover w-full"
         />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-5">
@@ -37,7 +37,11 @@ const SearchResultsCard = ({ data, className }: SearchResultsCard) => {
           className="flex flex-col justify-between col-span-3"
         >
           <h2 className="text-xl font-semibold text-text-dark">{name}</h2>
-          <Review className="mt-2" {...rating} />
+          <Review
+            className="mt-2"
+            rating={rating.rating}
+            amountReviews={rating.amount_reviews}
+          />
           <Description className="mt-4 text-xs line-clamp-3">
             {description}
           </Description>

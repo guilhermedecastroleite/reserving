@@ -3,21 +3,22 @@ import SectionTitle from "../Typography/SectionTitle";
 import Detail from "../Typography/Detail";
 import Button from "../Button";
 import clsx from "clsx";
+import type { QueryResultRow } from "@vercel/postgres";
 
 interface ReservationCardProps {
+  room: QueryResultRow;
   className?: string;
 }
 
-const ReservationCard = ({ className, ...props }: ReservationCardProps) => {
-  const title = "Standard twin ben, Multiple beds";
-  const size = "300 sq ft";
-  const number_guests = 3;
-  const beds = {
-    double: 1,
-    twin: 1,
-  };
+const ReservationCard = ({
+  room,
+  className,
+  ...props
+}: ReservationCardProps) => {
+  const { name, size, number_guests, beds } = room;
 
-  const bedsText = beds?.double && `${beds.double} double bed`;
+  const doubleBedText = beds.double ? `${beds.double} double bed` : "";
+  const singleBedText = beds.single ? `and ${beds.single} single bed` : "";
 
   return (
     <article
@@ -33,11 +34,11 @@ const ReservationCard = ({ className, ...props }: ReservationCardProps) => {
         style={{ width: "100%", height: "auto" }}
       />
       <div id="RoomInformation" className="p-5">
-        <SectionTitle>{title}</SectionTitle>
+        <SectionTitle>{name}</SectionTitle>
         <div id="RoomDetails" className="mt-4">
           <Detail>{size}</Detail>
           <Detail>{`Sleeps ${number_guests}`}</Detail>
-          <Detail>{`${beds.double} double bed and ${beds.twin} bed`}</Detail>
+          <Detail>{`${doubleBedText} ${singleBedText}`}</Detail>
         </div>
         <Button className="mt-6 w-full">Reserve suite</Button>
       </div>

@@ -1,7 +1,7 @@
-import Destinations from "./ui/Homepage/Destinations";
-import InspirationalArticles from "./ui/Homepage/InspirationalArticles";
-import PopularHotels from "./ui/Homepage/PopularHotels";
-import Poster from "./ui/Homepage/Poster";
+import Destinations from "../ui/Homepage/Destinations";
+import InspirationalArticles from "../ui/Homepage/InspirationalArticles";
+import PopularHotels from "../ui/Homepage/PopularHotels";
+import Poster from "../ui/Homepage/Poster";
 
 const homeData = {
   poster: {

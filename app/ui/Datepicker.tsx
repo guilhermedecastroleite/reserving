@@ -1,3 +1,4 @@
+"use client";
 import { DayPicker, useInput } from "react-day-picker";
 import { FaCalendarAlt, FaChevronDown, FaChevronUp } from "react-icons/fa";
 
@@ -41,7 +42,7 @@ const Datepicker = ({
       <input
         {...inputProps}
         id="RoomSelect"
-        className="bg-grey-2 rounded-md w-full h-full py-3 pr-3 pl-10 text-sm placeholder:text-text-light"
+        className="bg-grey-2 rounded-md w-full h-full py-3 pr-3 pl-10 text-sm placeholder:text-text-light border-none"
         onClick={toggleOpen}
         placeholder={placeholder}
       />

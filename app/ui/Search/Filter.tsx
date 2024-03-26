@@ -1,3 +1,5 @@
+"use client";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
 
 interface Option {
@@ -8,11 +10,25 @@ interface Option {
 
 interface FilterProps {
   title: string;
+  type: string;
   options: Option[];
   className?: string;
 }
 
-const Filter = ({ title, options, className }: FilterProps) => {
+const Filter = ({ title, type, options, className }: FilterProps) => {
+  const searchParams = useSearchParams();
+  const pathName = usePathname();
+  const { replace } = useRouter();
+
+  const selected = new URLSearchParams(searchParams).get(type);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selected = event.target.value;
+    const params = new URLSearchParams(searchParams);
+    params.set(type, selected);
+    replace(`${pathName}?${params.toString()}`);
+  };
+
   return (
     <div
       className={clsx(
@@ -32,6 +48,8 @@ const Filter = ({ title, options, className }: FilterProps) => {
             <input
               type="checkbox"
               value={option.value}
+              checked={selected === option.value}
+              onChange={handleChange}
               name={option.name}
               className="rounded-md cursor-pointer w-5 h-5 focus:ring-2 focus:ring-blue-accent text-blue-accent"
             />

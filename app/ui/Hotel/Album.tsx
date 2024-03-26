@@ -1,41 +1,44 @@
+import type { HotelImages } from "@/app/types";
+import clsx from "clsx";
 import Image from "next/image";
 
 interface AlbumProps {
+  images: HotelImages;
   className?: string;
 }
 
-const Album = ({ className }: AlbumProps) => {
+const Album = ({ images, className }: AlbumProps) => {
+  const { cover, album } = images;
+
+  console.log({ cover });
+
   return (
     <div
       id="Album"
-      className={`grid grid-areas-album md:grid-areas-album_mid lg:grid-areas-album_full gap-4 ${className}`}
+      className={clsx(
+        "grid grid-areas-album md:grid-areas-album_mid lg:grid-areas-album_full gap-4",
+        className
+      )}
     >
       <Image
-        src="https://placehold.co/820x452/webp"
-        width={0}
-        height={0}
-        sizes="100vw"
-        alt="Main hotel picture"
-        style={{ gridArea: "main", width: "100%", height: "auto" }}
+        src={cover.src}
+        alt={cover.alt}
+        width={cover.width}
+        height={cover.height}
+        style={{ gridArea: "main" }}
+        className={"rounded-md h-full w-full"}
       />
-      <Image
-        src="https://placehold.co/400x218/webp"
-        width={0}
-        height={0}
-        sizes="100vw"
-        alt="Main hotel picture"
-        style={{ gridArea: "side-1", width: "100%", height: "auto" }}
-        className="hidden md:block"
-      />
-      <Image
-        src="https://placehold.co/400x218/webp"
-        width={0}
-        height={0}
-        sizes="100vw"
-        alt="Main hotel picture"
-        style={{ gridArea: "side-2", width: "100%", height: "auto" }}
-        className="hidden md:block"
-      />
+      {album.map((image, index) => (
+        <Image
+          key={index}
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+          style={{ gridArea: `side-${index + 1}` }}
+          className="hidden md:block rounded-md w-full h-auto"
+        />
+      ))}
     </div>
   );
 };

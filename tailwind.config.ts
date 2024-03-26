@@ -23,6 +23,7 @@ const config: Config = {
         "grey-2": "#F2F2F2",
         "grey-3": "#828282",
         "grey-4": "#333333",
+        "grey-5": "#EBEBEB",
         "blue-accent": "#2F80ED",
         "blue-accent-5%": "rgba(47, 128, 237, 0.05)",
         "background-light": "#F4F4F4",

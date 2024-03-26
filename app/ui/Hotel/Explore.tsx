@@ -4,10 +4,11 @@ import { MdLocationPin } from "react-icons/md";
 import SectionTitle from "../Typography/SectionTitle";
 import Detail from "../Typography/Detail";
 import type { LocationType } from "@/app/types";
+import { MapSkeleton } from "../Map";
 
 const Map = dynamic(async () => await import("../Map"), {
   ssr: false,
-  loading: () => <p>Loading...</p>,
+  loading: () => <MapSkeleton />,
 });
 
 interface ExploreProps {

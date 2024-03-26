@@ -36,7 +36,7 @@ const SearchProperty = ({ className }: SearchPropertyProps) => {
       <div id="InputContainer" className={clsx("relative w-full", className)}>
         <input
           id="RoomSelect"
-          className="rounded-md w-full h-full py-3 pr-3 pl-10 text-sm placeholder:text-text-light"
+          className="rounded-md w-full h-full py-3 pr-3 pl-10 text-sm placeholder:text-text-light border-none"
           placeholder="e.g. Beach west palm"
           value={initialValue}
           onChange={(e) => handleSearch(e.target.value)}
