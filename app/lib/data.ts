@@ -85,8 +85,6 @@ export async function fetchRooms(query: string) {
 export async function fetchHotelList(params: any) {
   noStore();
 
-  console.log({ params });
-
   const category = params?.category || "";
   const property = params?.property || "";
   const country = params?.country || "";

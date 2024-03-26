@@ -1,6 +1,7 @@
 import { fetchHotelList } from "@/app/lib/data";
 import SearchResultsCard from "../Cards/SearchResultsCard";
 import SearchResultsHeader from "./SearchResultsHeader";
+import { randomUUID } from "crypto";
 
 interface ResultsContainerProps {
   searchParams?: {
@@ -19,7 +20,10 @@ export const ResultsContainerSkeleton = () => {
       </div>
       {...[
         Array(5).fill(
-          <div className="mt-4 h-56 w-full rounded-md bg-zinc-300" />
+          <div
+            key={randomUUID()}
+            className="mt-4 h-56 w-full rounded-md bg-zinc-300"
+          />
         ),
       ]}
     </div>

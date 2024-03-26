@@ -170,18 +170,24 @@ const SideFilters = ({ className }: SideFiltersProps) => {
         <SearchProperty />
       </Suspense>
       <div className="text-xl font-semibold text-grey-4 ml-4">Filter by</div>
-      <Filter
-        title="Your budget per day"
-        type="budget"
-        options={budgetOptions}
-      />
-      <Filter title="Rating" type="rating" options={ratingOptions} />
-      <Filter title="Popular Filters" type="popular" options={popularOptions} />
-      <Filter
-        title="Activities"
-        type="activities"
-        options={activitiesOptions}
-      />
+      <Suspense>
+        <Filter
+          title="Your budget per day"
+          type="budget"
+          options={budgetOptions}
+        />
+        <Filter title="Rating" type="rating" options={ratingOptions} />
+        <Filter
+          title="Popular Filters"
+          type="popular"
+          options={popularOptions}
+        />
+        <Filter
+          title="Activities"
+          type="activities"
+          options={activitiesOptions}
+        />
+      </Suspense>
     </div>
   );
 };
