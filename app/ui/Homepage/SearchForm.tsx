@@ -35,8 +35,9 @@ const SearchForm = ({ className }: SearchFormProps) => {
 
   const searchInitialState = {
     location: initialUrl.get("location") || "",
-    startDate: initialUrl.get("startDate") || new Date(),
-    endDate: initialUrl.get("endDate") || addDays(new Date(), 1),
+    startDate: new Date(initialUrl.get("startDate") || ""),
+    endDate:
+      new Date(initialUrl.get("endDate") || "") || addDays(new Date(), 1),
     errors: {},
   };
 
@@ -53,7 +54,7 @@ const SearchForm = ({ className }: SearchFormProps) => {
 
   const [state, formAction] = useFormState(handleSearch, searchInitialState);
   const [rooms, setRooms] = useState(
-    JSON.parse(initialUrl.get("rooms")) || {
+    JSON.parse(initialUrl.get("rooms") || "") || {
       adults: 1,
       children: 0,
       rooms: 1,
