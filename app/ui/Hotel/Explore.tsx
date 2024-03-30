@@ -12,15 +12,16 @@ const Map = dynamic(async () => await import("../Map"), {
 });
 
 interface ExploreProps {
+  hotelName: string;
   location: LocationType;
 }
 
-const Explore = ({ location }: ExploreProps) => {
+const Explore = ({ hotelName, location }: ExploreProps) => {
   const { nearby } = location;
 
   return (
     <div className="col-span-1">
-      <Map location={location} />
+      <Map markerLabel={hotelName} location={location} />
       <SectionTitle className="mt-8">Explore the area</SectionTitle>
       <ul id="LocationsList" className="mt-6">
         {nearby.map((place) => (

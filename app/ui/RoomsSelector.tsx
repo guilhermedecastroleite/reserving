@@ -18,9 +18,11 @@ interface RoomsSelectorProps {
   onConfirm?: (a: SelectedType) => void;
   hideValues?: boolean;
   className?: string;
+  value?: SelectedType;
 }
 
 const RoomsSelector = ({
+  value,
   onConfirm,
   hideValues,
   className,
@@ -28,11 +30,13 @@ const RoomsSelector = ({
   const ref = useRef<HTMLDivElement>(null);
 
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState({
-    adults: 1,
-    children: 0,
-    rooms: 1,
-  });
+  const [selected, setSelected] = useState(
+    value || {
+      adults: 1,
+      children: 0,
+      rooms: 1,
+    }
+  );
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
@@ -70,7 +74,7 @@ const RoomsSelector = ({
       <div
         id="HiddenMenu"
         className={clsx(
-          "absolute top-14 left-0 p-8 gap-4 w-full flex flex-col bg-white drop-shadow-xl",
+          "absolute top-14 left-0 p-5 gap-4 w-full flex flex-col bg-white drop-shadow-xl",
           { hidden: !isOpen }
         )}
       >

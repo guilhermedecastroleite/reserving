@@ -16,7 +16,7 @@ const Album = ({ images, className }: AlbumProps) => {
     <div
       id="Album"
       className={clsx(
-        "grid grid-areas-album md:grid-areas-album_mid lg:grid-areas-album_full gap-4 m-h-[27.5rem]",
+        "grid grid-areas-album md:grid-areas-album_mid lg:grid-areas-album_full gap-4 max-h-[27.5rem]",
         className
       )}
     >

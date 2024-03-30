@@ -7,6 +7,7 @@ import "leaflet-defaulticon-compatibility";
 import { LocationType } from "../types";
 
 interface MapProps {
+  markerLabel: string;
   location: LocationType;
 }
 
@@ -16,7 +17,7 @@ export const MapSkeleton = () => (
   </div>
 );
 
-const Map = ({ location }: MapProps) => {
+const Map = ({ markerLabel, location }: MapProps) => {
   const { coordinates, nearby } = location;
 
   return (
@@ -31,7 +32,7 @@ const Map = ({ location }: MapProps) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={coordinates}>
-        <Tooltip>HOTEL NAME HERE</Tooltip>
+        <Tooltip>{markerLabel}</Tooltip>
       </Marker>
       {nearby.map((place) => (
         <Marker key={place.name} position={place.coordinates}>

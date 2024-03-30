@@ -31,7 +31,7 @@ const Hotel = async ({ params }: HotelTypes) => {
             facilities={hotelData.facilities}
           />
         </div>
-        <Explore location={hotelData.location} />
+        <Explore hotelName={hotelData.name} location={hotelData.location} />
       </div>
       <Rooms hotelId={id} />
     </div>

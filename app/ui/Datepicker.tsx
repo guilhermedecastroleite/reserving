@@ -13,6 +13,8 @@ interface DatepickerProps {
   placeholder?: string;
   fromDate?: Date;
   className?: string;
+  id?: string;
+  name?: string;
 }
 
 const Datepicker = ({
@@ -21,6 +23,7 @@ const Datepicker = ({
   placeholder,
   fromDate,
   className,
+  ...rest
 }: DatepickerProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -40,11 +43,11 @@ const Datepicker = ({
   return (
     <div className={clsx("relative w-full", className)} ref={ref}>
       <input
-        {...inputProps}
-        id="RoomSelect"
         className="bg-grey-2 rounded-md w-full h-full py-3 pr-3 pl-10 text-sm placeholder:text-text-light border-none"
         onClick={toggleOpen}
         placeholder={placeholder}
+        {...inputProps}
+        {...rest}
       />
       <FaCalendarAlt className="mr-2 text-grey-3 absolute top-3.5 left-3" />
       {isOpen ? (
