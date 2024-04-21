@@ -29,15 +29,27 @@ export type State = {
   message?: string | null;
 };
 
+export const SearchFormSkeleton = ({ className }: { className?: string }) => {
+  return (
+    <div
+      role="status"
+      className={clsx("mt-6 py-2.5 px-3 w-full animate-pulse", className)}
+    >
+      <div className="bg-zinc-300 h-14 lg:max-h-16 w-full rounded-lg drop-shadow-md" />
+    </div>
+  );
+};
+
 const SearchForm = ({ className }: SearchFormProps) => {
   const searchParams = useSearchParams();
   const initialUrl = new URLSearchParams(searchParams);
 
   const searchInitialState = {
     location: initialUrl.get("location") || "",
-    startDate: new Date(initialUrl.get("startDate") || ""),
-    endDate:
-      new Date(initialUrl.get("endDate") || "") || addDays(new Date(), 1),
+    startDate: new Date(initialUrl.get("startDate") || new Date()),
+    endDate: initialUrl.get("endDate")
+      ? new Date(initialUrl.get("endDate") || "")
+      : addDays(new Date(), 1),
     errors: {},
   };
 
@@ -54,11 +66,13 @@ const SearchForm = ({ className }: SearchFormProps) => {
 
   const [state, formAction] = useFormState(handleSearch, searchInitialState);
   const [rooms, setRooms] = useState(
-    JSON.parse(initialUrl.get("rooms") || "") || {
-      adults: 1,
-      children: 0,
-      rooms: 1,
-    }
+    initialUrl.get("rooms")
+      ? JSON.parse(initialUrl.get("rooms") || "")
+      : {
+          adults: 1,
+          children: 0,
+          rooms: 1,
+        }
   );
 
   return (

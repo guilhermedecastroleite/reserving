@@ -1,7 +1,8 @@
 import type { ImageType } from "@/app/types";
 import Image from "next/image";
-import SearchForm from "./SearchForm";
+import SearchForm, { SearchFormSkeleton } from "./SearchForm";
 import clsx from "clsx";
+import { Suspense } from "react";
 
 interface PosterProps {
   title: string;
@@ -41,9 +42,17 @@ const Poster = ({ title, subtitle, image, className }: PosterProps) => {
           <h1 className="text-3xl font-bold">{title}</h1>
           <p className="text-xl w-4/5 m-auto mt-5">{subtitle}</p>
         </div>
-        <SearchForm className="hidden lg:flex absolute bottom-[-7%] left-0 lg:left-[5%] xl:left-[10%] w-full lg:w-[90%]  xl:w-4/5" />
+        <Suspense
+          fallback={
+            <SearchFormSkeleton className="hidden lg:flex absolute bottom-[-7%] left-0 lg:left-[5%] xl:left-[10%] w-full lg:w-[90%]  xl:w-4/5" />
+          }
+        >
+          <SearchForm className="hidden lg:flex absolute bottom-[-7%] left-0 lg:left-[5%] xl:left-[10%] w-full lg:w-[90%]  xl:w-4/5" />
+        </Suspense>
       </div>
-      <SearchForm className="flex lg:hidden" />
+      <Suspense fallback={null}>
+        <SearchForm className="flex lg:hidden" />
+      </Suspense>
     </div>
   );
 };

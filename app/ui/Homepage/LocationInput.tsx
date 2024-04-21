@@ -14,7 +14,7 @@ const LocationInput = ({ className, ...props }: InputProps) => {
         type="input"
         id="location"
         name="location"
-        placeholder="Where are you going?"
+        placeholder="Where to?"
         className="bg-grey-2 rounded-md w-full h-full py-3 pr-3 pl-10 text-sm placeholder:text-text-light border-none"
         {...props}
       />

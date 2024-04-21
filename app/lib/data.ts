@@ -89,6 +89,7 @@ export async function fetchHotelList(params: any) {
   const property = params?.property || "";
   const country = params?.country || "";
   const rating = params?.rating || 0;
+  const location = params?.location || "";
 
   try {
     const hotels = await sql`
@@ -125,12 +126,13 @@ export async function fetchHotelList(params: any) {
           hotels.name ILIKE ${`%${property}%`} AND
           hotels.country ILIKE ${`%${country}%`} AND
           hotels.category ILIKE ${`%${category}%`} AND
-          hotels.rating_value > ${rating}
+          hotels.rating_value > ${rating} AND
+          hotels.city ILIKE ${`%${location}%`}
     `;
 
     return hotels.rows;
   } catch (error) {
     console.error("Database Error:", error);
-    throw new Error("Failed to fetch rooms.");
+    throw new Error("Failed to fetch hotel list.");
   }
 }
